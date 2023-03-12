@@ -7,6 +7,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.util.SparseArray
+import android.view.View
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.Toast
@@ -55,10 +56,12 @@ class YoutubeActivity : AppCompatActivity() {
 
             urlLink= binding.youtubeUrl.text.toString()
 
+
             if(InternetConnection.isNetworkAvailable(this)) {
 
                 if (urlLink != "") {
                     if (urlLink.contains("yout")) {
+
                         showBottomSheet(urlLink)
                     }
                     else{
@@ -127,7 +130,6 @@ class YoutubeActivity : AppCompatActivity() {
         Log.d("@@@@",urlLink)
 //        https://www.youtube.com/watch?v=WFpqZYHeOnc  43
 //        https://youtu.be/4YxwCJ3lqzI
-        var lastIndex:Int?=null
         var videoId:String?=null
 
         if(urlLink.contains("www.youtube.com")){
@@ -144,17 +146,48 @@ class YoutubeActivity : AppCompatActivity() {
 
         btn1.setOnClickListener {
             val formatTag = typeMapList[btn1.text.toString()]
+            showProgressBar()
+            dialog.dismiss()
             downloadYoutubeVideo(urlLink,formatTag)
         }
         btn2.setOnClickListener {
             val formatTag = typeMapList[btn2.text.toString()]
+            showProgressBar()
+            dialog.dismiss()
             downloadYoutubeVideo(urlLink,formatTag)
         }
         btn3.setOnClickListener {
             val formatTag = typeMapList[btn3.text.toString()]
+            showProgressBar()
+            dialog.dismiss()
             downloadYoutubeVideo(urlLink,formatTag)
         }
 
+    }
+
+    private fun showProgressBar() {
+        binding.progressBar.progress = 0
+        var progressBarStatus = 0
+        var dummy:Int = 0
+        binding.progressBar.visibility = View.VISIBLE
+        Thread(Runnable {
+            // dummy thread mimicking some operation whose progress can be tracked
+            while (progressBarStatus < 100) {
+                // performing some dummy operation
+                try {
+                    dummy += 25
+                    Thread.sleep(1000)
+                } catch (e: InterruptedException) {
+                    e.printStackTrace()
+                }
+                // tracking progress
+                progressBarStatus = dummy
+
+                // Updating the progress bar
+                binding.progressBar.progress = progressBarStatus
+            }
+
+        }).start()
     }
 
     override fun onBackPressed() {

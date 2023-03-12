@@ -4,13 +4,13 @@ import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
 import android.content.Intent
-import android.net.ConnectivityManager
 import android.os.AsyncTask
 import android.os.Bundle
 import android.util.Log
+import android.view.View
+import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.tech.statussaver.Insta.InstagramVideo
 import com.tech.statussaver.databinding.ActivityShareChatBinding
 import com.tech.statussaver.util.InternetConnection
 import com.tech.statussaver.util.Util
@@ -23,7 +23,7 @@ class ShareChatActivity : AppCompatActivity() {
     private lateinit var binding: ActivityShareChatBinding
 
     companion object {
-        var activity = ShareChatActivity()
+        private var activity = ShareChatActivity()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -49,9 +49,33 @@ class ShareChatActivity : AppCompatActivity() {
         }
         binding.downloadBtn.setOnClickListener {
             val url: String = binding.sharechatUrl.text.toString()
+
             if (InternetConnection.isNetworkAvailable(this)) {
-                if(url!=""){
+                if(url!="" && url.contains("sharechat")){
+                    binding.progressBar.progress = 0
+                    var progressBarStatus = 0
+                    var dummy:Int = 0
+                    binding.progressBar.visibility = View.VISIBLE
                     getShareChatData(url)
+                    // task is run on a thread
+                    Thread(Runnable {
+                        // dummy thread mimicking some operation whose progress can be tracked
+                        while (progressBarStatus < 100) {
+                            // performing some dummy operation
+                            try {
+                                dummy += 25
+                                Thread.sleep(1000)
+                            } catch (e: InterruptedException) {
+                                e.printStackTrace()
+                            }
+                            // tracking progress
+                            progressBarStatus = dummy
+
+                            // Updating the progress bar
+                            binding.progressBar.progress = progressBarStatus
+                        }
+
+                    }).start()
                 }else{
                     Toast.makeText(this, "Enter the snapchat videos link", Toast.LENGTH_SHORT).show()
                 }
@@ -59,6 +83,7 @@ class ShareChatActivity : AppCompatActivity() {
             }else{
                 Toast.makeText(this, resources.getString(R.string.internet_connection), Toast.LENGTH_SHORT).show()
             }
+
         }
     }
 
@@ -100,8 +125,9 @@ class ShareChatActivity : AppCompatActivity() {
                         videoUrl,
                         Util.RootDirectoryShareChat,
                         activity,
-                        "sharechat " + System.currentTimeMillis() + ".mp4"
+                        "sharechat" + System.currentTimeMillis() + ".mp4"
                     )
+
                 } else {
                     Log.d("@@@@", "Video URL$videoUrl null")
                     Toast.makeText(activity, "Video not found", Toast.LENGTH_SHORT).show()

@@ -6,6 +6,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
@@ -41,8 +42,38 @@ class InstagramActivity : AppCompatActivity() {
         binding.downloadBtn.setOnClickListener {
 
             val url: String = binding.instaUrl.text.toString()
+
             if (InternetConnection.isNetworkAvailable(this)) {
-                InstagramVideo.downloadVideo(this, url)
+                if(url!="" && url.contains("instagram.com")) {
+
+                    binding.progressBar.progress = 0
+                    var progressBarStatus = 0
+                    var dummy:Int = 0
+                    binding.progressBar.visibility = View.VISIBLE
+                    InstagramVideo.downloadVideo(this, url)
+
+                    Thread(Runnable {
+                        // dummy thread mimicking some operation whose progress can be tracked
+
+                        while (progressBarStatus < 100) {
+                            // performing some dummy operation
+                            try {
+                                dummy += 25
+                                Thread.sleep(1000)
+                            } catch (e: InterruptedException) {
+                                e.printStackTrace()
+                            }
+                            // tracking progress
+                            progressBarStatus = dummy
+
+                            // Updating the progress bar
+                            binding.progressBar.progress = progressBarStatus
+                        }
+
+                    }).start()
+                }else{
+                    Toast.makeText(this, "Enter the instagram video link", Toast.LENGTH_SHORT).show()
+                }
             }else{
                 Toast.makeText(this, resources.getString(R.string.internet_connection), Toast.LENGTH_SHORT).show()
             }

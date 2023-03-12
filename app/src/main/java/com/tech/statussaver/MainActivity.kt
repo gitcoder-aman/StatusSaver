@@ -89,7 +89,9 @@ class MainActivity : AppCompatActivity() {
             R.id.about -> {
                 startActivity(Intent(this,AboutActivity::class.java))
             }
-            R.id.privacy -> Toast.makeText(this,"Privacy Selected",Toast.LENGTH_SHORT).show()
+            R.id.privacy ->{
+                startActivity(Intent(this,PrivacyPolicyActivity::class.java))
+            }
         }
         return super.onOptionsItemSelected(item)
     }
