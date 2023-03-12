@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/privacy"
+         android:title="@string/privacy"
+        android:iconTint="@color/colorPrimary"
+        app:showAsAction="never"
+        android:icon="@drawable/baseline_privacy_tip_24">
+    </item>
+
+    <item
+        android:id="@+id/about"
+        android:title="@string/about_us"
+        app:showAsAction="never"
+        android:iconTint="@color/colorPrimary"
+        android:icon="@drawable/info">
+    </item>
+</menu>

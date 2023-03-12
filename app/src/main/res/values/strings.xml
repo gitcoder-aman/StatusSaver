@@ -1,0 +1,55 @@
+<resources>
+    <string name="app_name">Status Saver</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="share_app">Share App</string>
+    <string name="share_app_with_your_friends">Share App with your friends</string>
+    <string name="download_sharechat_videos">Download Sharechat Videos</string>
+    <string name="about_us">About Us</string>
+    <string name="know_more_about_app">Know more about app</string>
+    <string name="facebook">Facebook</string>
+    <string name="download_facebook_videos">Download Facebook Videos</string>
+    <string name="whatsapp">Whatsapp</string>
+    <string name="download_whatsapp_videos">Download Whatsapp Videos</string>
+    <string name="share_chat">Share Chat</string>
+    <string name="download_youtube_videos">Download Youtube Videos</string>
+    <string name="download">Download</string>
+    <string name="paste">Paste</string>
+    <string name="url_here">URL Here</string>
+    <string name="youtube">Youtube</string>
+    <string name="download_instagram_videos">Download Instagram Videos</string>
+    <string name="instagram">Instagram</string>
+
+
+    <string name="exit">Exit</string>
+    <string name="share_to">Share to</string>
+    <string name="wrong">Some thing went to wrong</string>
+    <string name="internet_connection">Internet connection not available</string>
+
+    <string name="about_us_version">Version</string>
+    <string name="about_us_version_text">1.0</string>
+    <string name="about_us_email">Email</string>
+    <string name="about_us_email_text">aman.nittc@gmail.com</string>
+    <string name="about_us_about">About</string>
+    <string name="about_us_detail">This is a best Videos downloader app for all Social Media. </string>
+
+    <string name="share">Share</string>
+
+
+    <string name="mb">Mb</string>
+    <string name="cash_file">Cash file</string>
+    <string name="clear_cash_memory">Clear cash memory</string>
+    <string name="rate_us">Rate Us</string>
+    <string name="rate_the_app">Rate the App</string>
+    <string name="privacy">Privacy</string>
+    <string name="by_n_coderaman">By\n coderaman</string>
+    <string name="version">Version</string>
+    <string name="versioncode">1.0</string>
+    <string name="not_support">only Instagram Link support</string>
+    <string name="select_video_format">Select Video Format</string>
+    <string name="_360p">360P</string>
+    <string name="_240p">240P</string>
+    <string name="_1080p">1080P</string>
+    <string name="_720p">720P</string>
+
+</resources>
