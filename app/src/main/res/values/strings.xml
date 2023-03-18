@@ -51,5 +51,8 @@
     <string name="_240p">240P</string>
     <string name="_1080p">1080P</string>
     <string name="_720p">720P</string>
+    <string name="twitter_video">Twitter Video</string>
+    <string name="twitter">Twitter</string>
+    <string name="download_twitter_videos">Download Twitter Videos</string>
 
 </resources>

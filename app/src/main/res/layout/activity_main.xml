@@ -195,10 +195,10 @@
 <!--                    <LinearLayout-->
 <!--                        android:layout_width="match_parent"-->
 <!--                        android:layout_height="wrap_content"-->
-<!--                        android:orientation="vertical"-->
 <!--                        android:layout_centerVertical="true"-->
+<!--                        android:layout_toStartOf="@id/facebookArrow"-->
 <!--                        android:layout_toEndOf="@id/facebookLogo"-->
-<!--                        android:layout_toStartOf="@id/facebookArrow">-->
+<!--                        android:orientation="vertical">-->
 
 <!--                        <TextView-->
 <!--                            android:layout_width="wrap_content"-->
@@ -206,7 +206,7 @@
 <!--                            android:text="@string/facebook"-->
 <!--                            android:textColor="@color/blue"-->
 <!--                            android:textSize="22sp"-->
-<!--                            android:textStyle="bold"/>-->
+<!--                            android:textStyle="bold" />-->
 
 <!--                        <TextView-->
 <!--                            android:layout_width="wrap_content"-->
@@ -214,7 +214,7 @@
 <!--                            android:text="@string/download_facebook_videos"-->
 <!--                            android:textColor="@color/blue"-->
 <!--                            android:textSize="14sp"-->
-<!--                            android:textStyle="bold"/>-->
+<!--                            android:textStyle="bold" />-->
 
 <!--                    </LinearLayout>-->
 
@@ -247,7 +247,7 @@
                         android:layout_marginEnd="12dp"
                         android:layout_marginBottom="12dp"
                         android:layout_centerVertical="true"
-                        android:src="@drawable/icons8_youtube" />
+                        android:src="@drawable/icons8_twitter" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -260,7 +260,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/youtube"
+                            android:text="@string/twitter"
                             android:textColor="@color/blue"
                             android:textSize="22sp"
                             android:textStyle="bold"/>
@@ -268,7 +268,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/download_youtube_videos"
+                            android:text="@string/download_twitter_videos"
                             android:textColor="@color/blue"
                             android:textSize="14sp"
                             android:textStyle="bold"/>

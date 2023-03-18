@@ -43,11 +43,11 @@ class MainActivity : AppCompatActivity() {
 //        binding.facebookRL.setOnClickListener {
 //            startActivity(Intent(this,FacebookActivity::class.java))
 //        }
-        binding.youtubeRL.setOnClickListener {
-            startActivity(Intent(this,YoutubeActivity::class.java))
-        }
         binding.instaRL.setOnClickListener {
             startActivity(Intent(this,InstagramActivity::class.java))
+        }
+        binding.youtubeRL.setOnClickListener {
+            startActivity(Intent(this,TwitterActivity::class.java))
         }
         binding.shareRL.setOnClickListener {
             val sendIntent = Intent()

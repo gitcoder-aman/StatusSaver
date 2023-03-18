@@ -1,5 +1,6 @@
 package com.tech.alldownloadersaver
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -10,12 +11,12 @@ class PrivacyPolicyActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityPrivacyPolicyBinding
 
+    @SuppressLint("SetJavaScriptEnabled")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityPrivacyPolicyBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.webView.settings.setJavaScriptEnabled(true)
         binding.webView.loadUrl("file:///android_asset/privacy.html")
 
         setSupportActionBar(binding.toolbar)

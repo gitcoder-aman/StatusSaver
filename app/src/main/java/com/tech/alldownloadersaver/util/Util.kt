@@ -1,9 +1,13 @@
 package com.tech.alldownloadersaver.util
 
+import android.app.Activity
+import android.app.Dialog
 import android.app.DownloadManager
 import android.content.Context
 import android.net.Uri
 import android.os.Environment
+import android.view.LayoutInflater
+import android.view.View
 import android.widget.Toast
 import java.io.File
 
@@ -24,6 +28,7 @@ class Util {
 
         const val RootDirectoryFacebook: String = "/MyStorySaver/Facebook/"
         const val RootDirectoryShareChat: String = "/MyStorySaver/ShareChat/"
+        const val RootDirectoryTwitter: String = "/MyStorySaver/Twitter/"
         const val RootDirectoryInstagram: String = "/MyStorySaver/Instagram/"
         const val RootDirectoryYoutube: String = "/MyStorySaver/Youtube/"
 
@@ -51,7 +56,17 @@ class Util {
 
             Toast.makeText(context, "Saved to:"+Environment.DIRECTORY_DOWNLOADS+destinationPath+fileName, Toast.LENGTH_SHORT).show()
         }
+
+        @JvmStatic
+        fun isNullOrEmpty(cookie: String): Boolean {
+            return (cookie.isEmpty()) || cookie.equals("null", ignoreCase = true) || cookie.equals(
+                "0",
+                ignoreCase = true
+            )
+        }
     }
+
+
 
 
 }
