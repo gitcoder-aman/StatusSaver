@@ -11,12 +11,17 @@ import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.tech.alldownloadersaver.Insta.InstagramVideo
-import com.tech.alldownloadersaver.util.InternetConnection
+import com.tech.alldownloadersaver.api.CommonClassForAPI
 import com.tech.alldownloadersaver.databinding.ActivityInstagramBinding
+import com.tech.alldownloadersaver.util.InternetConnection
+
 
 class InstagramActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityInstagramBinding
+    var commonClassForAPI: CommonClassForAPI? = null
+    var activity:InstagramActivity? = null
+
 
     @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,6 +29,8 @@ class InstagramActivity : AppCompatActivity() {
         binding = ActivityInstagramBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        activity = this
+        commonClassForAPI = CommonClassForAPI.getInstance(this)
         binding.backArrow.setOnClickListener {
             this.finish()
             startActivity(Intent(this, MainActivity::class.java))
@@ -44,13 +51,14 @@ class InstagramActivity : AppCompatActivity() {
             val url: String = binding.instaUrl.text.toString()
 
             if (InternetConnection.isNetworkAvailable(this)) {
-                if(url!="" && url.contains("instagram.com")) {
+                if (url != "" && url.contains("instagram.com")) {
 
                     binding.progressBar.progress = 0
                     var progressBarStatus = 0
-                    var dummy:Int = 0
+                    var dummy: Int = 0
                     binding.progressBar.visibility = View.VISIBLE
                     InstagramVideo.downloadVideo(this, url)
+
 
                     Thread(Runnable {
                         // dummy thread mimicking some operation whose progress can be tracked
@@ -71,14 +79,20 @@ class InstagramActivity : AppCompatActivity() {
                         }
 
                     }).start()
-                }else{
-                    Toast.makeText(this, "Enter the instagram video link", Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(this, "Enter the instagram video link", Toast.LENGTH_SHORT)
+                        .show()
                 }
-            }else{
-                Toast.makeText(this, resources.getString(R.string.internet_connection), Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(
+                    this,
+                    resources.getString(R.string.internet_connection),
+                    Toast.LENGTH_SHORT
+                ).show()
             }
         }
     }
+
 
     override fun onBackPressed() {
         this.finishAffinity()

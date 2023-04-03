@@ -11,8 +11,8 @@ android {
         applicationId "com.tech.alldownloadersaver"
         minSdk 27
         targetSdk 33
-        versionCode 3
-        versionName "1.2"
+        versionCode 5
+        versionName "1.4"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -58,8 +58,6 @@ dependencies {
     //for facebook video download
     implementation 'org.jsoup:jsoup:1.15.4'
 
-//    implementation 'com.github.Ashusolanki:FacebookUrlExtractor:0.0.5'
-
     //for instagram video downloader
     implementation "com.android.volley:volley:1.2.1"
 
@@ -68,10 +66,11 @@ dependencies {
     implementation platform('com.google.firebase:firebase-bom:31.2.3')
     implementation 'com.google.firebase:firebase-analytics-ktx'
 
-    implementation 'com.google.code.gson:gson:2.9.0'
+    implementation 'com.google.code.gson:gson:2.9.1'
     implementation 'com.squareup.retrofit2:adapter-rxjava2:2.7.1'
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+
     implementation 'com.squareup.okhttp3:logging-interceptor:4.9.2'
     implementation 'com.squareup.okhttp3:okhttp:4.9.2'
     implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'

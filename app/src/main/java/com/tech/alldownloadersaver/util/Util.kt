@@ -1,13 +1,10 @@
 package com.tech.alldownloadersaver.util
 
-import android.app.Activity
-import android.app.Dialog
 import android.app.DownloadManager
 import android.content.Context
 import android.net.Uri
 import android.os.Environment
-import android.view.LayoutInflater
-import android.view.View
+
 import android.widget.Toast
 import java.io.File
 
